@@ -1,0 +1,30 @@
+<nav class="navbar" id="mainNav">
+  <div class="logo">
+    <a routerLink="/">
+      <img src="assets/logo.png" alt="GAM Logo" class="logo-img">
+    </a>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a routerLink="/"        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+    <li><a routerLink="/about"   routerLinkActive="active">About</a></li>
+    <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+    <li><a routerLink="/resume"  routerLinkActive="active">Resume</a></li>
+    <li><a routerLink="/blog"    routerLinkActive="active">Blog</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+  </ul>
+
+  <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+
+    <div class="contact-btn">
+      <a routerLink="/contact" class="btn-opticore">
+        <span>Let's Talk</span>
+        <div class="icon-circle"><i class="fas fa-paper-plane"></i></div>
+      </a>
+    </div>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>

@@ -1,0 +1,66 @@
+<div class="reading-progress-bar" id="readingProgress"></div>
+
+<div class="fluid-bg"></div>
+
+<div class="blog-detail-wrapper" *ngIf="blog">
+  <div class="container-narrow">
+
+    <button routerLink="/blog" class="back-link">
+      <i class="fas fa-long-arrow-alt-left"></i> Back to Journal
+    </button>
+
+    <article class="glass-panel full-post">
+
+      <div class="post-hero-band"></div>
+
+      <div class="post-header">
+        <div class="badge badge-dark" style="color:#00D2FF; border-color: rgba(0,210,255,0.3);">{{ blog.category }}</div>
+        <h1 class="sync-text">{{ blog.title }}</h1>
+
+        <div class="post-meta-row">
+          <span class="post-date">
+            <i class="far fa-calendar-alt" style="margin-right:5px; color: #00D2FF; opacity:0.6;"></i>
+            {{ blog.date }}
+          </span>
+          <span class="post-read-time" *ngIf="blog.readTime">
+            <i class="far fa-clock" style="margin-right:5px; color: #00D2FF; opacity:0.6;"></i>
+            {{ blog.readTime }}
+          </span>
+        </div>
+
+        <div class="post-tags" *ngIf="blog.tags">
+          <span class="tag-pill" *ngFor="let tag of blog.tags">{{ tag }}</span>
+        </div>
+      </div>
+
+      <div class="post-body" id="postBody">
+        <p class="post-intro">{{ getIntro() }}</p>
+
+        <div class="content-divider">
+          <div class="content-divider-line"></div>
+          <i class="fas fa-pen-nib content-divider-icon"></i>
+          <div class="content-divider-line" style="transform: scaleX(-1);"></div>
+        </div>
+
+        <ng-container *ngFor="let para of getParagraphs(); let i = index">
+          <div class="post-pullquote" *ngIf="i === 1 && blog.pullQuote">
+            <p>{{ blog.pullQuote }}</p>
+          </div>
+          <p class="post-paragraph">{{ para }}</p>
+        </ng-container>
+      </div>
+
+      <div class="post-footer">
+        <div class="post-footer-text">
+          <p style="color: white; font-weight: 600;">Want to discuss this article?</p>
+          <span style="color: #8b949e;">I'm always open to new conversations.</span>
+        </div>
+        <a routerLink="/contact" class="btn-opticore">
+          <span>Get In Touch</span>
+          <div class="icon-circle"><i class="fas fa-paper-plane"></i></div>
+        </a>
+      </div>
+
+    </article>
+  </div>
+</div>

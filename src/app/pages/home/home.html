@@ -1,0 +1,246 @@
+<div class="fluid-bg"></div>
+<div class="home-dark-wrapper">
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero-section">
+    <div class="hero-content">
+
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow">
+        <div class="eyebrow-pill">
+          <span class="eyebrow-blink"></span>
+          Available for Work
+        </div>
+      </div>
+
+      <!-- Name -->
+      <h1 class="headline">
+        <span class="headline-name">GIANNE</span>
+        <em class="headline-surname" data-text="AISLE">AISLE</em>
+      </h1>
+
+      <!-- Role -->
+      <div class="role-text-container">
+        <div class="role-line"></div>
+        <p class="role-text">Front-End Dev &nbsp;·&nbsp; UX/UI Designer</p>
+      </div>
+
+      <!-- Bio -->
+      <p class="bio">
+        Highly motivated IT student from Holy Angel University, specializing in front-end
+        development and UX/UI design. Passionate about building responsive, user-first
+        interfaces that bridge creativity with clean code.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-cta-row">
+        <a routerLink="/contact" class="btn-opticore">
+          <span>Hire Me</span>
+          <div class="icon-circle"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <div class="hero-scroll-hint">
+          <div class="scroll-arrow"></div>
+          <span>Scroll</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="hero-visual">
+      <div class="dev-workspace">
+
+        <div class="floating-tags">
+          <div class="code-tag tag-1 glass-panel">&lt;ui-portfolio /&gt;</div>
+          <div class="code-tag tag-2 glass-panel">&#123; design: true &#125;</div>
+        </div>
+
+        <!-- Browser -->
+        <div class="workspace-window browser-window glass-panel">
+          <div class="mac-header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="url-bar">gianne.dev · portfolio</div>
+          </div>
+          <div class="browser-content">
+            <div class="skeleton-nav"></div>
+            <div class="skeleton-hero"></div>
+            <div class="skeleton-cards">
+              <div class="s-card"></div><div class="s-card"></div><div class="s-card"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editor -->
+        <div class="workspace-window editor-window glass-panel">
+          <div class="mac-header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="tab">portfolio.component.ts</div>
+          </div>
+          <div class="editor-content">
+            <pre><code><span class="t-comment">// crafted with intention ✦</span>
+<span class="t-keyword">import</span> &#123; Component &#125; <span class="t-keyword">from</span> <span class="t-string">'@angular/core'</span>;
+
+<span class="t-keyword">@Component</span>(&#123;
+  <span class="t-property">selector</span>: <span class="t-string">'app-portfolio'</span>,
+  <span class="t-property">standalone</span>: <span class="t-keyword">true</span>,
+  <span class="t-property">styles</span>: [<span class="t-string">'./masterpiece.css'</span>]
+&#125;)
+<span class="t-keyword">export class</span> <span class="t-function">GianneAisle</span> &#123;
+  <span class="t-variable">role</span> = <span class="t-string">'Front-End Developer'</span>;
+  <span class="t-variable">passion</span> = <span class="t-string">'Building the web'</span>;
+&#125;</code></pre>
+          </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="workspace-window terminal-window glass-panel">
+          <div class="mac-header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="tab">bash — ng serve</div>
+          </div>
+          <div class="terminal-content">
+            <div>
+              <span class="term-path">gianne@dev</span>
+              <span class="term-prompt"> ~ %</span>
+              <span class="typewriter">ng serve --open</span>
+            </div>
+            <div class="term-success delay-show">✔ Compiled successfully.</div>
+            <div class="term-info delay-show-2">▶ Server running on port 4200</div>
+            <div class="term-info delay-show-3" style="color: #c678dd;">✦ Portfolio loaded.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ MARQUEE ══════════════ -->
+  <div class="tech-marquee-container">
+    <div class="marquee-track">
+      <ng-container *ngFor="let i of [1, 2]">
+        <div class="marquee-item" *ngFor="let tech of techStack">
+          <span>{{ tech }}</span>
+          <i class="fas fa-star-of-life separator"></i>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- ══════════════ EXPERTISE ══════════════ -->
+  <section class="expertise-section">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">What I Do</div>
+        <h2 class="sync-text" style="font-size: clamp(2rem,4vw,3rem);">MY EXPERTISE</h2>
+      </div>
+    </div>
+
+    <div class="bento-grid">
+      <div class="dark-card reveal reveal-delay-1">
+        <div class="card-accent"></div>
+        <div class="icon-cube"><i class="fas fa-code"></i></div>
+        <h3>Front-End Development</h3>
+        <p>Translating designs into responsive, interactive, and high-performance experiences using HTML, CSS, TypeScript, and Angular.</p>
+      </div>
+      <div class="dark-card reveal reveal-delay-2">
+        <div class="card-accent"></div>
+        <div class="icon-cube"><i class="fas fa-vector-square"></i></div>
+        <h3>UX/UI Design</h3>
+        <p>Creating intuitive, user-centric interfaces and high-fidelity wireframes in Figma that guide users naturally through digital experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROCESS STRIP ══════════════ -->
+  <div class="process-strip reveal">
+    <div class="process-label">My Process</div>
+    <div class="process-steps">
+      <div class="process-step" *ngFor="let step of processSteps; let i = index; let last = last">
+        <div class="process-step-inner">
+          <div class="process-num">0{{ i + 1 }}</div>
+          <div class="process-icon"><i [class]="step.icon"></i></div>
+          <h4 class="process-title">{{ step.title }}</h4>
+          <p class="process-desc">{{ step.desc }}</p>
+        </div>
+        <div class="process-arrow" *ngIf="!last">
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ PROJECTS ══════════════ -->
+  <section class="featured-projects-section">
+    <div class="section-title-box reveal">
+      <div class="badge badge-dark">Portfolio</div>
+      <h2>Featured <br><em class="sync-text">PROJECTS</em></h2>
+    </div>
+
+    <div class="projects-grid">
+      <article
+        class="custom-project-card reveal"
+        [class.reveal-delay-1]="i === 1"
+        [class.reveal-delay-2]="i === 2"
+        *ngFor="let project of featuredProjects; let i = index"
+        (mousemove)="onTilt($event)"
+        (mouseleave)="onTiltReset($event)">
+
+        <div class="card-preview">
+          <div class="card-preview-bg"></div>
+          <h3 class="preview-text" *ngIf="!project.image">{{ project.title }}</h3>
+          <img *ngIf="project.image" [src]="project.image" [alt]="project.title">
+        </div>
+
+        <div class="card-details">
+          <div class="tech-tag">{{ project.tech }}</div>
+          <h4>{{ project.title }}</h4>
+          <p>{{ project.description }}</p>
+<a [href]="project.link" target="_blank" class="view-details-link">
+            <span>View Live Demo</span>
+            <div class="link-arrow"><i class="fas fa-external-link-alt"></i></div>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════ TESTIMONIALS ══════════════ -->
+  <section class="testimonials-section" *ngIf="testimonials.length > 0">
+    <div class="section-title-box reveal">
+      <div class="badge">Feedback</div>
+      <h2>What People <br><em class="sync-text">SAY</em></h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div
+        class="glass-panel testimonial-card reveal"
+        [class.reveal-delay-1]="i === 1"
+        *ngFor="let item of testimonials; let i = index">
+        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <p>"{{ item.quote }}"</p>
+        <div class="author-info">
+          <div class="author-line"></div>
+          <div>
+            <h4>{{ item.author }}</h4>
+            <span>{{ item.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CTA ══════════════ -->
+  <section class="bottom-cta-section reveal">
+    <div class="cta-ambient"></div>
+    <div class="cta-grid"></div>
+    <div class="cta-content">
+      <span class="cta-eyebrow">Let's Collaborate</span>
+      <h2>Ready to bring your<br>ideas to life?</h2>
+      <p>Let's build something extraordinary together.</p>
+      <a routerLink="/contact" class="btn-opticore">
+        <span>Get In Touch</span>
+        <div class="icon-circle"><i class="fas fa-paper-plane"></i></div>
+      </a>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,182 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 100px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: height 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.scrolled {
+  height: 72px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: -40%;
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  animation: navScan 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes navScan {
+  0%   { left: -40%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.logo-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.4s ease;
+}
+
+.navbar.scrolled .logo-img { height: 68px; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover { color: var(--text-main); }
+
+.nav-links li a.active {
+  color: var(--neon-blue);
+  text-shadow: 0 0 12px var(--neon-blue);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  color: var(--neon-blue);
+  margin-right: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* CTA BUTTON Adjustments */
+.btn-opticore {
+  background: rgba(0,210,255,0.08);
+  border: 1px solid rgba(0,210,255,0.35);
+  color: var(--neon-blue);
+}
+
+.btn-opticore:hover {
+  background: var(--neon-blue);
+  color: #000 !important;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* DESKTOP NAVBAR CENTERING */
+@media (min-width: 901px) {
+  .nav-links {
+    position: absolute !important;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* MOBILE MENU */
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+
+  /* Hide Let's Talk button on mobile to avoid cramping */
+  .contact-btn { display: none; }
+
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: min(320px, 85vw);
+    height: 100vh;
+    background: rgba(3, 5, 12, 0.98);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 6rem 2.5rem 3rem;
+    border-left: 1px solid var(--glass-border);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .nav-links.open { right: 0; }
+
+  .nav-links li a {
+    font-size: 0.75rem;
+    padding: 12px 0;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+}

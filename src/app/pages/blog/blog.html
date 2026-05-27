@@ -1,0 +1,182 @@
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="blogCursor"></div>
+<div class="custom-cursor-ring" id="blogCursorRing"></div>
+
+<div class="fluid-bg"></div>
+
+<div class="blog-dark-layout" id="blogLayout">
+
+  <!-- ── Header ─────────────────────────────── -->
+  <header class="blog-header">
+    <div class="blog-header-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">Stay Informed</span>
+      <span class="eyebrow-line right"></span>
+    </div>
+    <h1 class="sync-text">My <br><em>JOURNAL</em></h1>
+    <p>Thoughts on web development, design trends, and my journey as a student developer.</p>
+  </header>
+
+  <!-- ── Scrolling Ticker ───────────────────── -->
+  <div class="blog-ticker-wrapper">
+    <div class="blog-ticker">
+      <span class="ticker-item">Web Development <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Angular &amp; TypeScript <span class="ticker-dot"></span></span>
+      <span class="ticker-item">UI/UX Design <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Student Developer <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Holy Angel University <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Responsive Design <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Creative Coding <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Design Systems <span class="ticker-dot"></span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">Web Development <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Angular &amp; TypeScript <span class="ticker-dot"></span></span>
+      <span class="ticker-item">UI/UX Design <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Student Developer <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Holy Angel University <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Responsive Design <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Creative Coding <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Design Systems <span class="ticker-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ── Stats Bar ──────────────────────────── -->
+  <div class="blog-stats">
+    <div class="stat-item">
+      <span class="stat-number" data-count="3">0</span>
+      <span class="stat-label">Articles</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="15">0</span>
+      <span class="stat-label">Min avg read</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-count="3">0</span>
+      <span class="stat-label">Topics covered</span>
+    </div>
+  </div>
+
+  <!-- ── Filter Bar ─────────────────────────── -->
+  <div class="blog-filters">
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter === 'all'" 
+      (click)="setFilter('all')">All Posts</button>
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter === 'Career'" 
+      (click)="setFilter('Career')">Career</button>
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter === 'Tutorial'" 
+      (click)="setFilter('Tutorial')">Tutorials</button>
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter === 'Design'" 
+      (click)="setFilter('Design')">Design</button>
+  </div>
+
+  <!-- ── Featured Post ──────────────────────── -->
+  <section class="blog-featured" *ngIf="featuredPost">
+    <div class="featured-label-outer">
+      <span class="featured-label-text">Featured Post</span>
+      <div class="featured-label-line"></div>
+    </div>
+
+    <article class="glass-panel blog-card-featured" [routerLink]="['/blog', featuredPost.id]">
+      <div class="card-glow-top"></div>
+
+      <!-- Visual Column -->
+      <div class="featured-visual">
+        <div class="featured-visual-bg"></div>
+        <div class="featured-visual-grid"></div>
+        <div class="featured-orb featured-orb-1"></div>
+        <div class="featured-orb featured-orb-2"></div>
+
+        <div class="featured-visual-inner">
+          <div class="featured-icon-wrap">
+            <i class="fas fa-laptop-code featured-icon"></i>
+          </div>
+          <span class="featured-visual-tag">Latest Story</span>
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="featured-content">
+        <span class="featured-number">01</span>
+
+        <div>
+          <div class="featured-badge">
+            <span class="featured-badge-dot"></span>
+            {{ featuredPost.category }}
+          </div>
+          <h2 class="blog-title" style="font-size: 1.75rem; margin-bottom: 1.2rem;">
+            {{ featuredPost.title }}
+          </h2>
+          <p class="blog-excerpt" style="font-size: 0.98rem;">
+            {{ featuredPost.content | slice:0:220 }}...
+          </p>
+          <div class="blog-tags" *ngIf="featuredPost.tags">
+            <span class="tag-pill" *ngFor="let tag of featuredPost.tags">{{ tag }}</span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;
+                    padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="display:flex;flex-direction:column;gap:0.25rem;">
+            <span class="date-text">{{ featuredPost.date }}</span>
+            <span class="read-time" style="margin-left:0;">
+              <i class="far fa-clock"></i>&nbsp;{{ featuredPost.readTime }}
+            </span>
+          </div>
+          <div class="read-more">
+            <span>Read Full Story</span>
+            <div class="read-more-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── Blog Grid ──────────────────────────── -->
+  <div class="blog-grid">
+    <article 
+      class="glass-panel blog-card" 
+      *ngFor="let post of filteredBlogs; let i = index"
+      [routerLink]="['/blog', post.id]"
+      (mousemove)="onCardMouseMove($event)"
+      (mouseleave)="onCardMouseLeave($event)">
+
+      <div class="card-spotlight"></div>
+      <div class="card-accent-bar"></div>
+
+      <div class="blog-card-content">
+        <div class="blog-meta">
+          <span class="tech-tag">{{ post.category }}</span>
+          <span class="date-text">{{ post.date }}</span>
+          <span class="read-time"><i class="far fa-clock"></i>&nbsp;{{ post.readTime }}</span>
+        </div>
+
+        <h2 class="blog-title">{{ post.title }}</h2>
+        <p class="blog-excerpt">{{ post.content | slice:0:130 }}...</p>
+
+        <div class="blog-tags" *ngIf="post.tags">
+          <span class="tag-pill" *ngFor="let tag of post.tags">{{ tag }}</span>
+        </div>
+
+        <div class="read-more">
+          <span>Read Article</span>
+          <div class="read-more-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+
+      <div class="card-reading-line"></div>
+    </article>
+
+    <div class="blog-empty" *ngIf="filteredBlogs.length === 0">
+      <i class="fas fa-pen-nib"></i>
+      <p>No posts in this category yet. Check back soon!</p>
+    </div>
+  </div>
+
+</div>

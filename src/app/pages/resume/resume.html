@@ -1,0 +1,96 @@
+<div class="fluid-bg"></div>
+
+<div class="resume-dark-layout">
+  
+  <header class="resume-header">
+    <h1 class="sync-text">My <br><em>RESUME</em></h1>
+    <p>A comprehensive overview of my professional qualifications, technical skills, and background.</p>
+    
+    <div class="quick-contact-strip">
+      <a href="mailto:{{ contactInfo.email }}" class="contact-pill">
+        <div class="pill-icon"><i class="fas fa-envelope"></i></div>
+        <span>{{ contactInfo.email }}</span>
+      </a>
+      <a href="tel:{{ contactInfo.phone }}" class="contact-pill">
+        <div class="pill-icon"><i class="fas fa-phone"></i></div>
+        <span>{{ contactInfo.phone }}</span>
+      </a>
+      <a href="https://{{ contactInfo.linkedin }}" target="_blank" class="contact-pill">
+        <div class="pill-icon"><i class="fab fa-linkedin-in"></i></div>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="download-container">
+      <a href="assets/resume-mangalino-gianne-aisle.pdf" download="Gianne_Mangalino_Resume.pdf" class="custom-download-btn">
+        <div class="btn-inner">
+          <span class="btn-label">DOWNLOAD FULL RESUME PDF</span>
+          <div class="btn-circle"><i class="fas fa-arrow-down"></i></div>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <div class="resume-grid">
+    
+    <aside class="resume-sidebar">
+      <div class="glass-panel sidebar-card">
+        <h3 class="neon-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+        <div class="edu-item" *ngFor="let edu of education">
+          <div class="tech-tag">{{ edu.school }}</div>
+          <h4>{{ edu.degree }}</h4>
+          <p class="highlight">{{ edu.note }}</p>
+          <p class="courses">{{ edu.courses }}</p>
+        </div>
+      </div>
+
+      <div class="glass-panel sidebar-card">
+        <h3 class="neon-title"><i class="fas fa-users"></i> Soft Skills</h3>
+        <ul class="clean-list">
+          <li *ngFor="let skill of softSkills"><i class="fas fa-check"></i> {{ skill }}</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="resume-main">
+      <div class="glass-panel main-card summary-card">
+        <h3 class="neon-title"><i class="fas fa-user-tie"></i> Professional Summary</h3>
+        <p class="summary-text">{{ professionalSummary }}</p>
+      </div>
+
+      <div class="glass-panel main-card">
+        <h3 class="neon-title"><i class="fas fa-laptop-code"></i> Technical Proficiency</h3>
+        <div class="skills-category-grid">
+          <div class="skill-group" *ngFor="let group of technicalSkills">
+            <h4>{{ group.category }}</h4>
+            <div class="tags-container">
+              <span class="outline-tag" *ngFor="let skill of group.skills">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel main-card timeline-container">
+        <h3 class="neon-title"><i class="fas fa-briefcase"></i> Work Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item" *ngFor="let job of experiences">
+            <div class="timeline-dot">
+              <div class="dot-inner"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="job-header">
+                <h4>{{ job.role }}</h4>
+                <span class="date-badge">{{ job.date }}</span>
+              </div>
+              <h5 class="company-name">{{ job.company }}</h5>
+              <ul>
+                <li *ngFor="let task of job.desc">{{ task }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>

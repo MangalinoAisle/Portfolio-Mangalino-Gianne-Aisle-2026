@@ -1,0 +1,68 @@
+<footer class="footer">
+
+  <!-- ===== MAIN FOOTER BODY ===== -->
+  <div class="footer-body">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand footer-col">
+        <img src="assets/logo.png" alt="GAM Logo" class="footer-logo">
+        <p>Bridging creative design and technical implementation to build memorable experiences on the web.</p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About</a>
+        <a routerLink="/projects">Projects</a>
+        <a routerLink="/resume">Resume</a>
+        <a routerLink="/blog">Blog</a>
+        <a routerLink="/contact">Contact</a>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>What I Do</h4>
+        <p>Front-End Development</p>
+        <p>UI/UX Design</p>
+        <p>Angular Applications</p>
+        <p>Responsive Web Design</p>
+        <p>Figma Prototyping</p>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:gaislemangalino@gmail.com">gaislemangalino@gmail.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:09994899536">0999-489-9536</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Mabalacat City, Philippines</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-circle" style="color:#00ff8c; font-size:0.5rem; margin-top:5px;"></i>
+          <span style="color: #00ff8c; font-size:0.8rem;">Available for work</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER BOTTOM ===== -->
+  <div class="footer-bottom">
+    <p>&copy; {{ currentYear }} Gianne Mangalino. Crafted with <span>♥</span> & Code.</p>
+    <div class="footer-bottom-right">
+      <button class="back-to-top" (click)="scrollToTop()">
+        <i class="fas fa-arrow-up"></i> Top
+      </button>
+    </div>
+  </div>
+
+</footer>

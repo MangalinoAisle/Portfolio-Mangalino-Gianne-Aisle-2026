@@ -1,0 +1,336 @@
+.resume-dark-layout { 
+  padding: calc(var(--nav-height) + 4rem) 5% 6rem; 
+  min-height: 100vh; 
+  max-width: 1400px; 
+  margin: 0 auto;
+}
+
+/* --- HEADER --- */
+.resume-header { text-align: center; margin-bottom: 6rem; }
+
+.badge-dark { 
+  display: inline-block; padding: 6px 18px; 
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 30px; font-size: 0.75rem; text-transform: uppercase; 
+  letter-spacing: 1px; margin-bottom: 1rem; color: #aaa;
+}
+
+.sync-text { 
+  font-family: 'Syncopate', sans-serif; font-size: 3.5rem; 
+  font-weight: 700; margin: 0 0 1.5rem 0; line-height: 1.1; color: white;
+}
+
+.sync-text em { 
+  background: linear-gradient(90deg, #fff, #aaa); 
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+  font-style: normal;
+}
+
+.resume-header p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2.5rem; }
+
+/* ============================================
+   CONTACT PILLS — Glowing neon-edge style
+   ============================================ */
+.quick-contact-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-pill {
+  position: relative;
+  background: rgba(5, 10, 20, 0.7);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 50px;
+  padding: 6px 20px 6px 6px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+}
+
+/* Animated shimmer sweep on hover */
+.contact-pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(0, 210, 255, 0.12) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+}
+.contact-pill:hover::before {
+  transform: translateX(100%);
+}
+
+/* Glowing icon circle with icon inside */
+.contact-pill .pill-icon {
+  width: 34px;
+  height: 34px;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-size: 0.8rem;
+  color: rgba(0, 210, 255, 0.8);
+}
+
+.contact-pill span {
+  color: #ddd;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.contact-pill:hover {
+  border-color: rgba(0, 210, 255, 0.65);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.2), inset 0 0 20px rgba(0, 210, 255, 0.04);
+  transform: translateY(-3px);
+}
+
+.contact-pill:hover .pill-icon {
+  background: rgba(0, 210, 255, 0.18);
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+  color: #00d2ff;
+}
+
+/* ============================================
+   DOWNLOAD BUTTON — Animated gradient + glow
+   ============================================ */
+.download-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.custom-download-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.35s ease;
+  /* Animated gradient border via outline trick */
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.6), rgba(255, 0, 127, 0.5), rgba(0, 210, 255, 0.6));
+  background-size: 200% 200%;
+  animation: borderSpin 4s linear infinite;
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+}
+
+@keyframes borderSpin {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.custom-download-btn:hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 0 45px rgba(0, 210, 255, 0.35), 0 0 80px rgba(255, 0, 127, 0.15);
+}
+
+/* Inner wrapper fills the button body */
+.btn-inner {
+  background: rgba(4, 8, 18, 0.92);
+  border-radius: 48px;
+  padding: 10px 10px 10px 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer sweep on hover */
+.btn-inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(0, 210, 255, 0.1) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.custom-download-btn:hover .btn-inner::after {
+  transform: translateX(120%);
+}
+
+.custom-download-btn .btn-label {
+  color: white;
+  font-family: 'Syncopate', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* Right icon circle — glowing arrow */
+.custom-download-btn .btn-circle {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #000;
+  font-size: 1rem;
+}
+
+.custom-download-btn:hover .btn-circle {
+  transform: translateY(2px);
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.9), 0 0 40px rgba(0, 210, 255, 0.4);
+}
+
+
+/* --- GRID LAYOUT --- */
+.resume-grid { 
+  display: grid; 
+  grid-template-columns: 350px 1fr; 
+  gap: 3.5rem; 
+  align-items: start;
+}
+
+/* Glass Panel Base Setup */
+.glass-panel {
+  background: rgba(5, 10, 20, 0.6); 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  padding: 3rem; 
+}
+
+.neon-title { 
+  font-size: 1.3rem; color: white; margin: 0 0 2.5rem 0; 
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 1.5rem;
+}
+
+.neon-title i { color: var(--neon-magenta); }
+
+/* --- SIDEBAR --- */
+.sidebar-card { margin-bottom: 2.5rem; } 
+
+.tech-tag { 
+  display: inline-block; background: rgba(255, 0, 127, 0.1); 
+  color: var(--neon-magenta); padding: 4px 10px; border-radius: 6px; 
+  font-size: 0.75rem; font-weight: 600; margin-bottom: 1.2rem; 
+  border: 1px solid rgba(255, 0, 127, 0.2); 
+}
+
+.edu-item h4 { font-size: 1.25rem; color: white; margin: 0 0 8px 0; line-height: 1.3;}
+.highlight { color: var(--neon-blue); font-size: 0.95rem; margin: 0 0 1.2rem 0; font-weight: 600; }
+.courses { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+.clean-list { list-style: none; padding: 0; margin: 0; color: #ccc; }
+.clean-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
+.clean-list li i { color: var(--neon-blue); font-size: 0.85rem; }
+.clean-list li:last-child { margin-bottom: 0; }
+
+/* --- MAIN CONTENT --- */
+.main-card { margin-bottom: 3rem; } 
+
+/* Summary */
+.summary-text { color: #ccc; font-size: 1.15rem; line-height: 1.9; margin: 0; }
+
+/* Categorized Skills */
+.skills-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+}
+.skill-group h4 { color: white; font-size: 1.05rem; margin: 0 0 1.2rem 0; letter-spacing: 1px; }
+
+.tags-container { display: flex; flex-wrap: wrap; gap: 12px; }
+.outline-tag { 
+  background: transparent; color: #ccc; padding: 8px 16px; 
+  border-radius: 8px; font-size: 0.9rem; 
+  border: 1px solid rgba(255,255,255,0.1); 
+  transition: all 0.3s ease;
+}
+.outline-tag:hover {
+  border-color: var(--neon-magenta);
+  color: white;
+  background: rgba(255, 0, 127, 0.1);
+}
+
+/* --- TIMELINE (Experience) --- */
+.timeline { 
+  border-left: 2px solid rgba(0, 210, 255, 0.2); 
+  padding-left: 40px; 
+  position: relative; 
+  margin-top: 2rem;
+}
+
+.timeline-item { position: relative; margin-bottom: 4.5rem; }
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute; left: -49px; top: 0;
+  width: 18px; height: 18px; 
+  background: var(--bg-deep); 
+  border: 2px solid var(--neon-blue); 
+  border-radius: 50%; 
+  display: flex; justify-content: center; align-items: center;
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+.dot-inner { width: 6px; height: 6px; background: var(--neon-blue); border-radius: 50%; }
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.timeline-content:hover {
+  transform: translateX(10px);
+  border-color: rgba(0, 210, 255, 0.2);
+  background: rgba(0, 210, 255, 0.02);
+}
+
+.job-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 8px; flex-wrap: wrap; gap: 10px;
+}
+.job-header h4 { margin: 0; color: white; font-size: 1.3rem; }
+.date-badge { 
+  background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); 
+  padding: 6px 14px; border-radius: 12px; font-size: 0.8rem; color: #aaa; 
+}
+
+.company-name { 
+  color: var(--neon-blue); font-size: 1rem; 
+  font-weight: 600; margin: 8px 0 1.5rem 0; 
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+.timeline-content ul { padding-left: 18px; color: var(--text-muted); line-height: 1.8; margin: 0; font-size: 1.05rem;}
+.timeline-content li { margin-bottom: 12px; }
+.timeline-content li:last-child { margin-bottom: 0; }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 950px) {
+  .resume-grid { grid-template-columns: 1fr; }
+  .sync-text { font-size: 2.8rem; }
+  .job-header { flex-direction: column; }
+}

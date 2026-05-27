@@ -1,0 +1,138 @@
+<div class="fluid-bg"></div>
+<div class="about-dark-wrapper">
+
+  <div class="about-split">
+    <div class="visual-left">
+      <div class="photo-saturn-wrap">
+        <div class="photo-glow"></div>
+        <div class="spark spark-1"></div>
+        <div class="spark spark-2"></div>
+        <div class="spark spark-3"></div>
+        <div class="spark spark-4"></div>
+        <div class="spark spark-5"></div>
+        <div class="spark spark-6"></div>
+        <div class="spark spark-7"></div>
+        <div class="spark spark-8"></div>
+        <img src="assets/gianne-about.png" alt="Gianne Aisle" class="profile-photo">
+      </div>
+    </div>
+
+    <div class="content-right">
+      <div class="about-info">
+        <div class="about-eyebrow">
+          <div class="about-eyebrow-line"></div>
+          <span>Who I Am</span>
+        </div>
+        <h1 class="about-name">{{ intro.name }}</h1>
+        <p class="about-title">{{ intro.title }}</p>
+        <p class="about-bio">{{ intro.bio }}</p>
+        <p class="philosophy-text">"{{ philosophy }}"</p>
+        <div class="location-row">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ intro.location }}</span>
+        </div>
+        <div class="cta-row">
+          <a routerLink="/resume" class="btn-opticore">
+            <div class="btn-opticore-inner">
+              <span>View Full Resume</span>
+              <div class="icon-circle"><i class="fas fa-file-alt"></i></div>
+            </div>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="skills-section">
+    <div class="section-title-box reveal">
+      <div class="badge">Capabilities</div>
+      <h2>My <br><em>Skills</em></h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="glass-panel skill-card reveal reveal-delay-1">
+        <h3><i class="fas fa-laptop-code"></i>&nbsp; Technical Skills</h3>
+        <div class="skill-bar-container" *ngFor="let skill of technicalSkills">
+          <div class="skill-info">
+            <span class="skill-name-text">{{ skill.name }}</span>
+            <span class="skill-percent">{{ skill.level }}</span>
+          </div>
+          <div class="progress-bg">
+            <div class="progress-fill" [style.width]="skill.level">
+              <div class="progress-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel skill-card reveal reveal-delay-2">
+        <h3><i class="fas fa-users"></i>&nbsp; Soft Skills</h3>
+        <div class="tags-container">
+          <span class="neon-tag" *ngFor="let skill of softSkills">{{ skill }}</span>
+        </div>
+        <h3 style="margin-top: 2.5rem;"><i class="fas fa-graduation-cap"></i>&nbsp; Education</h3>
+        <div class="education-info">
+          <h4>Bachelor of Science in Information Technology</h4>
+          <h5>Holy Angel University</h5>
+          <p>Major in Web Development — building responsive, user-first digital experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certifications-section">
+    <div class="section-title-box reveal">
+      <div class="badge">Achievements</div>
+      <h2>My <br><em>Certifications</em></h2>
+    </div>
+
+    <div class="carousel-wrapper reveal reveal-delay-1">
+      <button class="carousel-btn prev-btn" (click)="scrollLeft()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="cert-carousel" #certCarousel>
+        <div
+          class="glass-panel cert-card"
+          [class.has-image]="cert.image"
+          *ngFor="let cert of certifications"
+          (mousemove)="onMouseMove($event)"
+          (mouseleave)="onMouseLeave($event)">
+
+          <div class="card-glow-top"></div>
+
+          <div class="cert-image-wrapper" *ngIf="cert.image" (click)="openLightbox(cert.image)">
+            <img [src]="cert.image" [alt]="cert.title">
+            <div class="zoom-overlay"><i class="fas fa-expand"></i></div>
+          </div>
+
+          <div class="cert-info padded-info">
+            <div class="cert-icon" *ngIf="!cert.image">
+              <i class="fas {{ cert.icon }}"></i>
+            </div>
+            <h3>{{ cert.title }}</h3>
+            <span class="issuer">{{ cert.issuer }}</span>
+            <p>{{ cert.desc }}</p>
+            
+            <div class="cert-download-wrap" style="display: flex; justify-content: center; padding-top: 1.5rem;">
+               <a [href]="cert.downloadLink" [download]="cert.title + '.pdf'" class="icon-download-btn" title="Download Certificate">
+                  <i class="fas fa-arrow-down"></i>
+               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-btn next-btn" (click)="scrollRight()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <div class="lightbox-overlay" *ngIf="selectedImage" (click)="closeLightbox()">
+    <button class="close-btn">&times;</button>
+    <img [src]="selectedImage" class="lightbox-img" (click)="$event.stopPropagation()">
+  </div>
+
+</div>

@@ -1,0 +1,82 @@
+<canvas id="particle-canvas"></canvas>
+
+<div class="fluid-bg"></div>
+<div class="projects-dark-layout">
+
+  <div class="header-center">
+    <div class="badge">✦ Portfolio</div>
+    <h1>Featured <br><em>PROJECTS</em></h1>
+    <p>A comprehensive look at my latest work, features, and tools.</p>
+
+    <div class="project-count-row">
+      <div class="count-item">
+        <span class="num" data-count="6">6</span>
+        <span class="label">Projects</span>
+      </div>
+      <div class="count-item">
+        <span class="num" data-count="6">6</span>
+        <span class="label">Live Demos</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-showcase">
+
+    <article class="glass-panel detailed-project-card" *ngFor="let project of projects; let i = index"
+             [attr.data-index]="i">
+      <div class="card-glow-top"></div>
+      <div class="project-number">{{ (i + 1).toString().padStart(2, '0') }}</div>
+
+      <div class="project-content">
+        <p class="project-index">Project {{ (i + 1).toString().padStart(2, '0') }} / {{ projects.length.toString().padStart(2, '0') }}</p>
+        <h2 class="neon-title">{{ project.title }}</h2>
+        <div class="tools-list">
+          <span class="tech-tag" *ngFor="let tool of project.tools">{{ tool }}</span>
+        </div>
+        <div class="desc-block">
+          <h4>Purpose</h4>
+          <p>{{ project.purpose }}</p>
+        </div>
+        <div class="desc-block">
+          <h4>Key Features</h4>
+          <p>{{ project.features }}</p>
+        </div>
+
+        <div class="project-progress">
+          <div class="progress-item" *ngFor="let metric of project.metrics">
+            <span class="progress-label">{{ metric.label }}</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" [attr.data-width]="metric.value" style="width: 0%"></div>
+            </div>
+            <span class="progress-val">{{ metric.value }}%</span>
+          </div>
+        </div>
+
+        <div class="action-links">
+          <a [href]="project.demoLink" target="_blank" class="btn-opticore">
+            <span>Live Demo</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a [href]="project.githubLink" target="_blank" class="btn-outline">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="project-visuals">
+        <div class="visuals-grid">
+          <div class="img-frame main">
+            <img [src]="project.images[0]" [alt]="project.title + ' screenshot 1'">
+          </div>
+          <div class="img-frame">
+            <img [src]="project.images[1]" [alt]="project.title + ' screenshot 2'">
+          </div>
+          <div class="img-frame">
+            <img [src]="project.images[2]" [alt]="project.title + ' screenshot 3'">
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
