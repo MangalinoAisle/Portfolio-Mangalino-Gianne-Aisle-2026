@@ -1,6 +1,5 @@
 <div class="fluid-bg"></div>
 
-<!-- Toast notification -->
 <div class="toast" id="successToast">
   <i class="fas fa-check-circle"></i>
   <span>Message sent! I'll get back to you soon.</span>
@@ -8,8 +7,7 @@
 
 <div class="contact-dark-layout">
 
-  <!-- ===== HEADER ===== -->
-<header class="contact-header">
+  <header class="contact-header">
     <div class="badge badge-dark">✦ Get In Touch</div>
     <h1 class="sync-text">Let's<br><em>CONNECT</em></h1>
     <p>Have a project in mind or just want to say hello? I'd love to hear from you.</p>
@@ -20,7 +18,7 @@
     </div>
 
     <div style="margin-top: 1.5rem; display: flex; justify-content: center; animation: fadeUp 0.7s 0.4s ease both;">
-      <a href="assets/Gianne-Aisle-Mangalino-Resume" 
+      <a href="assets/Mangalino Gianne Aisle (Resume)-1.pdf" 
          download="Gianne_Mangalino_Resume.pdf" 
          class="submit-btn" 
          style="width: auto; padding: 12px 28px; border-radius: 50px; text-decoration: none;">
@@ -29,7 +27,6 @@
     </div>
   </header>
 
-  <!-- ===== QUICK STATS ===== -->
   <div class="quick-stats">
     <div class="stat-chip">
       <i class="fas fa-clock"></i>
@@ -49,10 +46,8 @@
     </div>
   </div>
 
-  <!-- ===== GRID ===== -->
   <div class="contact-grid">
 
-    <!-- LEFT: INFO CARD -->
     <div class="glass-panel info-card panel-delay-1">
       <h3 class="neon-title">Contact Information</h3>
 
@@ -87,9 +82,6 @@
         </div>
       </div>
 
-      
-
-      <!-- Response time badge -->
       <div class="response-badge">
         <i class="fas fa-bolt"></i>
         <p>I typically respond within <strong>24 hours</strong>. For urgent matters feel free to reach out via phone.</p>
@@ -113,7 +105,6 @@
       </div>
     </div>
 
-    <!-- RIGHT: FORM CARD -->
     <div class="glass-panel form-card panel-delay-2">
       <h3 class="neon-title">Send A Message</h3>
 
@@ -173,7 +164,6 @@
           <span class="char-counter" [class.warn]="charCount > 430">{{ charCount }}/500</span>
         </div>
 
-        <!-- Error message -->
         <div class="error-banner" *ngIf="hasError">
           <i class="fas fa-exclamation-triangle"></i>
           <span>{{ errorMessage }}</span>
